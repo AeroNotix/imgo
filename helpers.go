@@ -62,8 +62,9 @@ func GetAlbum(AlbumID string) (a Album, err error) {
 	return a, nil
 }
 
-func GetAlbum(AlbumID string) (a Album, err error) {
-	resp, err := http.Get("http://api.imgur.com/2/album/" + AlbumID)
+func GetInfoHash(Hash string) (i Image, err error) {
+	body, err := GetResponse("http://api.imgur.com/2/image/" + Hash)
+	err = xml.Unmarshal(body, &i)
 	if err != nil {
 		return
 	}

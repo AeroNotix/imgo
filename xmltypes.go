@@ -63,3 +63,9 @@ type Item struct {
 	Image   ImgurImage
 	Links   ImgurLinks
 }
+
+type Image struct {
+	XMLName xml.Name `xml:"image"`
+	Image   ImgurImage
+	Links   ImgurLinks
+}
