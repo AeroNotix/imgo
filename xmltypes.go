@@ -4,6 +4,10 @@ import (
 	"encoding/xml"
 )
 
+var (
+	APIKey = ""
+)
+
 const (
 	UploadURL = "http://api.imgur.com/2/upload.xml"
 )
