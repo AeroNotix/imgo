@@ -35,8 +35,12 @@ type ImgurLinks struct {
 }
 
 type Stats struct {
-	XMLName     xml.Name `xml:"stats"`
-	MostPopular []string `xml:"most_popular_images>image_hash"`
+	XMLName        xml.Name `xml:"stats"`
+	MostPopular    []string `xml:"most_popular_images>image_hash"`
+	ImagesUploaded int64    `xml:"images_uploaded"`
+	ImagesViewed   int64    `xml:"images_viewed"`
+	BandwidthUsed  string   `xml:"bandwidth_used"`
+	AvgImgSize     string   `xml:"average_image_size"`
 }
 
 type Upload struct {
