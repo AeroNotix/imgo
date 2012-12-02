@@ -34,6 +34,11 @@ type ImgurLinks struct {
 	Thumbnail   string   `xml:"large_thumbnail"`
 }
 
+type Stats struct {
+	XMLName     xml.Name `xml:"stats"`
+	MostPopular []string `xml:"most_popular_images>image_hash"`
+}
+
 type Upload struct {
 	XMLName xml.Name `xml:"upload"`
 	Image   ImgurImage

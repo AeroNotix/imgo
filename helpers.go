@@ -41,3 +41,20 @@ func UploadFile(path string) (ul Upload, err error) {
 	}
 	return v, nil
 }
+
+func GetStats() (s Stats, err error) {
+	resp, err := http.Get("http://api.imgur.com/2/stats")
+	if err != nil {
+		return
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return
+	}
+	err = xml.Unmarshal(body, &s)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return s, nil
+}
