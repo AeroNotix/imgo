@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"imgo"
+	imgo "github.com/AeroNotix/imgo"
 )
 
 func main() {
