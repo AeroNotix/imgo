@@ -43,6 +43,9 @@ func UploadFile(path string) (ul Upload, err error) {
 
 func GetStats() (s Stats, err error) {
 	body, err := GetResponse("http://api.imgur.com/2/stats")
+	if err != nil {
+		return
+	}
 	err = xml.Unmarshal(body, &s)
 	if err != nil {
 		return
@@ -64,6 +67,9 @@ func GetAlbum(AlbumID string) (a Album, err error) {
 
 func GetInfoHash(Hash string) (i Image, err error) {
 	body, err := GetResponse("http://api.imgur.com/2/image/" + Hash)
+	if err != nil {
+		return
+	}
 	err = xml.Unmarshal(body, &i)
 	if err != nil {
 		return
