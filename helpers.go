@@ -3,7 +3,6 @@ package imgo
 import (
 	"encoding/base64"
 	"encoding/xml"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -37,7 +36,7 @@ func UploadFile(path string) (ul Upload, err error) {
 	v := Upload{}
 	err = xml.Unmarshal(body, &v)
 	if err != nil {
-		fmt.Println(err)
+		return
 	}
 	return v, nil
 }
@@ -54,7 +53,7 @@ func GetStats() (s Stats, err error) {
 	}
 	err = xml.Unmarshal(body, &s)
 	if err != nil {
-		fmt.Println(err)
+		return
 	}
 	return s, nil
 }
