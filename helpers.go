@@ -84,3 +84,7 @@ func GetResponse(URL string) (b []byte, err error) {
 	}
 	return ioutil.ReadAll(resp.Body)
 }
+
+func InitAPIKey(apikey string) {
+	APIKey = apikey
+}
