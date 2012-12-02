@@ -48,3 +48,18 @@ type Upload struct {
 	Image   ImgurImage
 	Links   ImgurLinks
 }
+
+type Album struct {
+	XMLName xml.Name `xml:"album"`
+	Title   string   `xml:"title"`
+	Desc    string   `xml:"description"`
+	Cover   string   `xml:"cover"`
+	Layout  string   `xml:"layout"`
+	Images  []Item   `xml:"images>item"`
+}
+
+type Item struct {
+	XMLName xml.Name `xml:"item"`
+	Image   ImgurImage
+	Links   ImgurLinks
+}

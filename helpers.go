@@ -58,3 +58,20 @@ func GetStats() (s Stats, err error) {
 	}
 	return s, nil
 }
+
+func GetAlbum(AlbumID string) (a Album, err error) {
+	resp, err := http.Get("http://api.imgur.com/2/album/" + AlbumID)
+	if err != nil {
+		return
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return
+	}
+	err = xml.Unmarshal(body, &a)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return a, nil
+}
